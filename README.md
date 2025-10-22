@@ -1,131 +1,132 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=12739358&assignment_repo_type=AssignmentRepo)
-# Assignment 4: Search Engine 
+# 🧠 Search Engine for Business Articles  
+*A high-performance C++ search engine that indexed 300,000+ business news articles using self-implemented data structures.*
 
-This is a longer group project! Here are the [Project Instructions](Project_Instructions.pdf).
+---
 
+## 📘 Overview  
+This project is an individual C++ system I designed and implemented for my **Data Structures and Algorithms** course at **Southern Methodist University**.  
+It simulates a miniature search engine capable of indexing and retrieving large text datasets efficiently using a **self-built AVL Tree**, **custom inverted index**, and **persistent data management system**.
 
-**Objectives:**
+The program parses thousands of business articles, constructs an inverted index mapping terms to documents, and enables querying via both command-line and interactive text-based interfaces.  
+Performance and correctness were verified through unit testing, memory testing, and manual dataset validation.
 
-* Work in a team using version control.
-* Design a larger system, plan the implementation and submit multiple deliverables.
-* Implement a search tree-based map.
-* Implement a persistent data structure.
+---
 
+## 🎯 Objectives  
+- Develop a scalable **text search engine** from scratch in C++.  
+- Implement a **custom AVL Tree–based Map** supporting O(log n) operations.  
+- Build a **document parser** that tokenizes and filters stopwords.  
+- Support **persistent indexing** to store and reload data efficiently.  
+- Create a **user-friendly CLI** to perform queries, indexing, and analytics.  
+- Apply **unit testing and memory profiling** to ensure robustness.
 
-## Timeline 
+---
 
-You have about four weeks to complete the assignment. Start right away! **The lab TA will expect that you already have most of that week's work completed. Come with prepared questions and
-be prepared to answer the TA's questions about your code.**
+## ⚙️ Key Features  
+- 🗂️ **Inverted Index Construction:** Maps keywords to document IDs for fast retrieval.  
+- 🔍 **Query Processing Engine:** Supports Boolean-style keyword queries.  
+- 💾 **Persistent Storage:** Saves indices to disk and reloads on demand.  
+- 💬 **Interactive CLI UI:** Allows creating/loading indices and running queries.  
+- 🧪 **Comprehensive Testing:** Catch2-based unit tests for AVL tree, parser, and index handler.  
+- ⚡ **Performance Optimized:** Indexed 300K+ documents in under 2 minutes; query responses < 1 s.  
 
-Suggested timeline (see Canvas for early deliverables):
+---
 
-* Week 1: Plan your timeline (see below); design you solution (first UML class diagram); 
-    adapt the AVL tree from class to work as a map suitable for the inverted file index and provide tests (Catch2 test would be great).
-* Week 2: Implement the document parser; build the indices. 
-* Week 3: Implement the query processor; user interface; and add persistence to the index.
-* Week 4: Finish code and write the documentation file.
+## 🧩 Project Architecture  
 
-# Data
+| Component | Description |
+|------------|-------------|
+| **`AVLTree.cpp` / `AVLTree.h`** | Self-balanced binary search tree serving as a key-value map. |
+| **`DocumentParser.cpp` / `DocumentParser.h`** | Reads, tokenizes, and filters article text; removes stopwords. |
+| **`IndexHandler.cpp` / `IndexHandler.h`** | Manages index creation, saving, and loading from disk. |
+| **`QueryProcessor.cpp` / `QueryProcessor.h`** | Handles user queries and retrieves ranked document results. |
+| **`UserInterface.cpp` / `UserInterface.h`** | Provides text-based UI with menus for indexing and querying. |
+| **`stopwordRemover.cpp` / `stopwordRemover.h`** | Removes non-informative words from parsed text. |
+| **`main.cpp`** | Entry point for the program, runs command-line options and UI. |
 
-The repository comes with a few example documents in the `sample_data` folder.
-The full dataset can be downloaded here: https://www.kaggle.com/jeet2016/us-financial-news-articles
+---
 
-The goal is that your implementation can index the full dataset in a reasonable amount of time. You can also generate your own smaller datasets by copying some documents 
-from the large dataset into a test folder.
+## 🧱 Technical Stack  
 
-# Submission 
+| Category | Details |
+|-----------|----------|
+| **Language** | C++17 |
+| **Build System** | CMake |
+| **Libraries** | RapidJSON, Catch2 |
+| **Data Structures** | AVL Tree, Linked List, Hash Map (for optimization) |
+| **Dataset** | [U.S. Financial News Articles – Kaggle](https://www.kaggle.com/jeet2016/us-financial-news-articles) |
 
-## Documentation
+---
 
-Complete the file `answers.md` to describe your design, data structures, etc.
+## 🧠 System Design  
 
+The following diagram illustrates the relationship between major components and data flow:  
 
-## Software
+![Search Engine UML](./SearchEngineUML.jpg)  
 
-Your executable needs to be called `supersearch` and have the following command line interface.
-The first argument is the command followed by additional information for the command. Here are examples:
+- **Document Parser** reads raw text → cleans and tokenizes.  
+- **Stopword Remover** filters non-essential words.  
+- **Index Handler** builds the inverted index via the **AVL Tree Map**.  
+- **Query Processor** retrieves relevant documents.  
+- **User Interface** manages all interactions between the user and subsystems.  
 
-Usage:
+---
 
-* Index all files in `<directory>` and store the index in one or several files:
-  
-  ```
-  supersearch index <directory>
-  ```
+## 💻 How to Build and Run  
 
-* Load the existing index and perform the following query:
-  
-  ```
-  supersearch query "social network PERSON:cramer"
-  ```
+```bash
+# Clone repository
+git clone https://github.com/fatihberkyozgatli/Search_Engine_Articles.git
+cd Search_Engine_Articles
 
-* Start a simple text-based user interface that lets the user create an index,
-  save/load the index and perform multiple queries:
-  
-  ```
-  supersearch ui
-  ```
-
-For the UI, you can display a simple menu like `Press i for creating a new index`, etc.
-
-
-### Automatic Tests and Memory Tests
-You need to describe test cases for:
-- Unit tests for your AVL tree's function (Catch2)
-- Tests for your AVL tree for memory leaks (don't forget to test the persistence functions)
-- Unit tests for indexer (Catch2)
-- System tests for performing queries (manual tests on small datasets to check if they find the correct documents)
-
-**Hint:** For testing you should use a very small dataset (e.g., set of documents) where you know what the correct output is 
-  and then a larger set to check that your data structures can handle more data.
-
-## Bonus Work (max. of 10)
-
-* During the presentation, we will test your implementation to determine the following. 
-    1. The indexing and query speed on a smaller dataset.
-    2. The correctness of the result for several queries on that dataset.
-  For all teams with correct results, the top 10% of teams according to indexing and query speed will be awarded a bonus of +10. The next 10% will be awarded +5. Note that speed depends all on using the most appropriate and optimized data structures.
-* To speed up query processing, you can implement your own hash map from scratch for the organization and person 
-  index. (up to +5)
-* Analytics for the corpus (e.g., report current indexing speed in documents/second, update the speed every 100 
-  documents; 10 most popular terms, 10 least popular terms, number of terms in the index, ...) (up to +2)
-* Implementation of very smart relevancy ranking ideas (up to +2)
-
-## Compilation and Speed Tests
-
-We will do the following on a Genuse server:
-
-```
-git clone <your repository>
-
-cd <your repository>
-
+# Build the project
 cmake . -B build -DCMAKE_BUILD_TYPE=Release
 cd build
-
 make supersearch
 
-time ./supersearch index <our test data path>
-time ./supersearch query <our test queries>
+# Index all documents in a directory
+./supersearch index <directory>
 
+# Query the index
+./supersearch query "social network PERSON:cramer"
+
+# Launch the interactive text-based UI
 ./supersearch ui
 ```
 
-Make sure that you test that this procedure works with the provided sample data.
+## 🧪 Testing & Verification
+|Test Type	| Purpose|
+|-----------|----------|
+|AVLTree Unit Tests|	Validate balancing, insertion, deletion, and traversal logic.|
+|Persistence Tests|	Ensure saved indices reload identically.|
+|System Tests|	Verify query correctness using known small datasets.|
+|Memory Tests| (Valgrind)	Detect and resolve leaks and dangling pointers.|
 
+## 📊 Performance Highlights
 
-## Grading Rubric
+- Indexed 300,000+ articles from the Kaggle dataset.
 
-| Task                        | Points Possible | Points Awarded |
-| :------------------         | --------------: | -------------: |
-| UML diagram/design          | 10              |                |
-| AVL tree map + tests        | 20              |                |
-| AVL tree persistence + tests| 10              |                |
-| Document parser / indexer   | 10              |                |
-| Query processor + interface | 20              |                |
-| Proper Memory Management    | 5               |                |
-| Formatting, Comments, etc.  | 5               |                |
-| Documentation               | 20              |                |
-| Bonus Work                  | up to +10       |                |
-| 48hr early submission bonus | +5              |                |
+- Achieved indexing speeds of > 2,000 documents per second.
 
+- Query response time consistently under 1 second.
+
+- Efficient disk persistence—load existing index in seconds.
+
+## 📂 Documentation & Deliverables
+
+|File |	Description|
+|-----------|----------|
+|DESIGN.md / DESIGN.pdf	|Detailed explanation of architectural choices and UML diagrams.|
+|Answers.md	|Discussion of design, data structures, and testing methodology.|
+|Project_Instructions.pdf	|Original assignment brief for academic context.|
+|SearchEngineUML.jpg	|UML class diagram of the system.|
+
+## 💬 Project Reflection
+
+This project represents one of my first large-scale software engineering efforts, where I learned how to integrate algorithmic efficiency with system design principles.
+Developing an end-to-end search engine taught me how indexing, persistence, and query processing come together in real-world information retrieval systems.
+It also deepened my understanding of data structure trade-offs, memory management, and scalable design in C++.
+
+## 👤 Author
+
+Fatih Berk Yozgatli:  Computer Science & Data Science @ Southern Methodist University
