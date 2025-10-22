@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/Users/fatihberkyozgatli/Desktop/CS 2341/assignment-4-search-engine-fatih-berk/build",
+  "command": "/usr/bin/clang++  -I\"/Users/fatihberkyozgatli/Desktop/CS 2341/assignment-4-search-engine-fatih-berk/rapidjson\" -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -mmacosx-version-min=13.0 -Wall -Wextra -pedantic -o CMakeFiles/rapidJSONExample.dir/rapidJSONExample.cpp.o -c \"/Users/fatihberkyozgatli/Desktop/CS 2341/assignment-4-search-engine-fatih-berk/rapidJSONExample.cpp\"",
+  "file": "/Users/fatihberkyozgatli/Desktop/CS 2341/assignment-4-search-engine-fatih-berk/rapidJSONExample.cpp",
+  "output": "CMakeFiles/rapidJSONExample.dir/rapidJSONExample.cpp.o"
+},
+{
+  "directory": "/Users/fatihberkyozgatli/Desktop/CS 2341/assignment-4-search-engine-fatih-berk/build",
+  "command": "/usr/bin/clang++   -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -mmacosx-version-min=13.0 -Wall -Wextra -pedantic -o CMakeFiles/supersearch.dir/main.cpp.o -c \"/Users/fatihberkyozgatli/Desktop/CS 2341/assignment-4-search-engine-fatih-berk/main.cpp\"",
+  "file": "/Users/fatihberkyozgatli/Desktop/CS 2341/assignment-4-search-engine-fatih-berk/main.cpp",
+  "output": "CMakeFiles/supersearch.dir/main.cpp.o"
+}
+]

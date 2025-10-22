@@ -1,0 +1,4 @@
+/Users/fatihberkyozgatli/Desktop/CS 2341/assignment-4-search-engine-fatih-berk/build/CMakeFiles/rapidJSONExample.dir
+/Users/fatihberkyozgatli/Desktop/CS 2341/assignment-4-search-engine-fatih-berk/build/CMakeFiles/supersearch.dir
+/Users/fatihberkyozgatli/Desktop/CS 2341/assignment-4-search-engine-fatih-berk/build/CMakeFiles/edit_cache.dir
+/Users/fatihberkyozgatli/Desktop/CS 2341/assignment-4-search-engine-fatih-berk/build/CMakeFiles/rebuild_cache.dir
